@@ -1,0 +1,132 @@
+<% #Board for 1st move %>
+<table>
+<tbody>
+<tr>
+	<% #Space 1 %>
+	<td>
+		<% if @game.one == 1 then %>
+		<%= form_for @game, remote: true do |f| %>
+		<%= f.hidden_field :one, value: 2 %>
+		<%= f.submit class: "btn btn-primary" %>
+		<% end %>
+		<%else%>
+		<%= @game.one %>
+		<%end%>
+	</td>
+	<% #Space 2 %>
+	<td>
+		<% if @game.two == 1 then %>
+		<%= form_for @game, remote: true do |f| %>
+		<%= f.hidden_field :two, value: 2 %>
+		<%= f.submit class: "btn btn-primary" %>
+		<% end %>
+		<%else%>
+		<%= @game.two %>
+		<%end%>
+
+	</td>
+	<% #Space 3 %>
+	<td>
+		<% if @game.three == 1 then %>
+		<%= form_for @game, remote: true do |f| %>
+		<%= f.hidden_field :three, value: 2 %>
+		<%= f.submit class: "btn btn-primary" %>
+		<% end %>
+		<%else%>
+		<%= @game.three %>
+		<%end%>
+	</td>
+</tr>
+<tr>
+	<% #Space 4 %>
+	<td>
+		<% if @game.four == 1 then %>
+		<%= form_for @game, remote: true do |f| %>
+		<%= f.hidden_field :four, value: 2 %>
+		<%= f.submit class: "btn btn-primary" %>
+		<% end %>
+		<%else%>
+		<%= @game.four %>
+		<%end%>
+	</td>
+	<% #Space 5 %>
+	<td>
+		<% if @game.five == 1 then %>
+		<%= form_for @game, remote: true do |f| %>
+		<%= f.hidden_field :five, value: 2 %>
+		<%= f.submit class: "btn btn-primary" %>
+		<% end %>
+		<%else%>
+		<%= @game.five %>
+		<%end%>
+	</td>
+	<% #Space 6 %>
+	<td>
+		<% if @game.six == 1 then %>
+		<%= form_for @game, remote: true do |f| %>
+		<%= f.hidden_field :six, value: 2 %>
+		<%= f.submit class: "btn btn-primary" %>
+		<% end %>
+		<%else%>
+		<%= @game.six %>
+		<%end%>
+	</td>
+</tr>
+<tr>
+	<% #Space 7 %>
+	<td>
+		<% if @game.seven == 1 then %>
+		<%= form_for @game, remote: true do |f| %>
+		<%= f.hidden_field :seven, value: 2 %>
+		<%= f.submit class: "btn btn-primary" %>
+		<% end %>
+		<%else%>
+		<%= @game.seven %>
+		<%end%>
+	</td>
+	<% #Space 8 %>
+	<td>
+		<% if @game.eight == 1 then %>
+		<%= form_for @game, remote: true do |f| %>
+		<%= f.hidden_field :eight, value: 2 %>
+		<%= f.submit class: "btn btn-primary" %>
+		<% end %>
+		<%else%>
+		<%= @game.eight %>
+		<%end%>
+	</td>
+	<% #Space 9 %>
+	<td>
+		<% if @game.nine == 1 then %>
+		<%= form_for @game, remote: true do |f| %>
+		<%= f.hidden_field :nine, value: 2 %>
+		<%= f.submit class: "btn btn-primary" %>
+		<% end %>
+		<%else%>
+		<%= @game.nine %>
+		<%end%>
+	</td>
+</tr>
+</tbody>
+</table>
+
+<% # 4 TESTING %>
+<table>
+<tbody>
+<tr>
+	<td><div id = "1"><%= @game.one %></div></td>
+	<td><div id = "2"><%= @game.two %></div></td>
+	<td><div id = "3"><%= @game.three %></div></td>
+</tr>
+<tr>
+	<td><div id = "4"><%= @game.four %></div></td>
+	<td><div id = "5"><%= @game.five %></div></td>
+	<td><div id = "6"><%= @game.six %></div></td>
+</tr>
+<tr>
+	<td><div id = "7"><%= @game.seven %></div></td>
+	<td><div id = "8"><%= @game.eight %></div></td>
+	<td><div id = "9"><%= @game.nine %></div></td>
+</tr>
+</tbody>
+</table>

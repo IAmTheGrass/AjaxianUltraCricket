@@ -1,0 +1,376 @@
+<% #tests if next move is choosen %>
+<% @test = true %>
+<% #tracks game lenght %>
+<% @use = @game.count + 1 %>
+
+
+<% #handles response to 1st move %>
+<% if @use == 1 then if @game.five == 1 then @move = 5 and @test = false end end %>
+<% if @use == 1 then if @game.five == 2 then @move = 1 and @test = false end end %>
+
+<% #handles if player took middle with first move %>
+<% if @game.five == 2 and @divVar == "2" and @game.eight == 1 then @move = 8 and @test = false end %>
+<% if @game.five == 2 and @divVar == "3" and @game.seven == 1 then @move = 7 and @test = false end %>
+<% if @game.five == 2 and @divVar == "4" and @game.six == 1 then @move = 6 and @test = false end %>
+<% if @game.five == 2 and @divVar == "6" and @game.four == 1 then @move = 4 and @test = false end %>
+<% if @game.five == 2 and @divVar == "7" and @game.three == 1 then @move = 3 and @test = false end %>
+<% if @game.five == 2 and @divVar == "8" and @game.two == 1 then @move = 2 and @test = false end %>
+<% if @game.five == 2 and @divVar == "9" and @game.three == 1 then @move = 3 and @test = false end %>
+
+<% #handles move for 1 corner perspective %>
+<% if @divVar == "2" or @game.two == 2 and @game.one == 2 and @game.three == 1 then @move = 3 and @test = false end %>
+<% if @divVar == "3" or @game.three == 2 and @game.one == 2 and @game.two == 1 then @move = 2 and @test = false end %>
+<% if @divVar == "4" or @game.four == 2 and @game.one == 2 and @game.seven == 1 then @move = 7 and @test = false end %>
+<% if @divVar == "7" or @game.seven == 2 and @game.one == 2 and @game.four == 1 then @move = 4 and @test = false end %>
+<% if @divVar == "1" or @game.one == 2 and @game.two == 2 and @game.three == 1 then @move = 3 and @test = false end %>
+<% if @divVar == "1" or @game.one == 2 and @game.three == 2 and @game.two == 1 then @move = 2 and @test = false end %>
+<% if @divVar == "1" or @game.one == 2 and @game.four == 2 and @game.seven == 1 then @move = 7 and @test = false end %>
+<% if @divVar == "1" or @game.one == 2 and @game.seven == 2 and @game.four == 1 then @move = 4 and @test = false end %>
+
+<% #handles move for 9 corner perspective %>
+<% if @divVar == "3" or @game.three == 2 and @game.nine == 2 and @game.six == 1 then @move = 6 and @test = false end %>
+<% if @divVar == "6" or @game.six == 2 and @game.nine == 2 and @game.three == 1 then @move = 3 and @test = false end %>
+<% if @divVar == "7" or @game.seven == 2 and @game.nine == 2 and @game.eight == 1 then @move = 8 and @test = false end %>
+<% if @divVar == "8" or @game.eight == 2 and @game.nine == 2 and @game.seven == 1 then @move = 7 and @test = false end %>
+<% if @divVar == "9" or @game.nine == 2 and @game.three == 2 and @game.six == 1 then @move = 6 and @test = false end %>
+<% if @divVar == "9" or @game.nine == 2 and @game.six == 2 and @game.three == 1 then @move = 3 and @test = false end %>
+<% if @divVar == "9" or @game.nine == 2 and @game.seven == 2 and @game.eight == 1 then @move = 8 and @test = false end %>
+<% if @divVar == "9" or @game.nine == 2 and @game.eight == 2 and @game.seven == 1 then @move = 7 and @test = false end %>
+
+<% #handles oposite corners %>
+<% if @divVar == "1" or @game.one == 2 and @game.nine == 2 and @use == 2 then @move = 4 and @test = false end %>
+<% if @divVar == "3" or @game.three == 2 and @game.seven == 2 and @use == 2 then @move = 4 and @test = false end %>
+<% if @divVar == "7" or @game.seven == 2 and @game.three == 2 and @use == 2 then @move = 4 and @test = false end %>
+<% if @divVar == "9" or @game.nine == 2 and @game.one == 2 and @use == 2 then @move = 4 and @test = false end %>
+
+<% #handles move for stright lines %>
+<% if @divVar == "2" or @game.two == 2 and @game.five == 2 and @game.eight == 1 then @move = 8 and @test = false end %>
+<% if @divVar == "3" or @game.three == 2 and @game.five == 2 and @game.seven == 1 then @move = 7 and @test = false end %>
+<% if @divVar == "4" or @game.four == 2 and @game.five == 2 and @game.six == 1 then @move = 6 and @test = false end %>
+<% if @divVar == "6" or @game.six == 2 and @game.five == 2 and @game.four == 1 then @move = 4 and @test = false end %>
+<% if @divVar == "7" or @game.seven == 2 and @game.five == 2 and @game.three == 1 then @move = 3 and @test = false end %>
+<% if @divVar == "8" or @game.eight == 2 and @game.five == 2 and @game.two == 1 then @move = 2 and @test = false end %>
+<% if @divVar == "9" or @game.nine == 2 and @game.five == 2 and @game.one == 1 then @move = 1 and @test = false end %>
+
+<% #wins if possible %>
+<% #wins horizontal %>
+<% if @game.one == 3 and @game.two == 3 and @game.three == 1 then @move = 3 and @test = false end %>
+<% if @game.one == 3 and @game.three == 3 and @game.two == 1 then @move = 2 and @test = false end %>
+<% if @game.two == 3 and @game.three == 3 and @game.one == 1 then @move = 1 and @test = false end %>
+<% if @game.four == 3 and @game.five == 3 and @game.six == 1 then @move = 6 and @test = false end %>
+<% if @game.four == 3 and @game.six == 3 and @game.five == 1 then @move = 5 and @test = false end %>
+<% if @game.five == 3 and @game.six == 3 and @game.four == 1 then @move = 4 and @test = false end %>
+<% if @game.seven == 3 and @game.eight == 3 and @game.nine == 1 then @move = 9 and @test = false end %>
+<% if @game.seven == 3 and @game.nine == 3 and @game.eight == 1 then @move = 8 and @test = false end %>
+<% if @game.eight == 3 and @game.nine == 3 and @game.seven == 1 then @move = 7 and @test = false end %>
+<% #wins verticle %>
+<% if @game.one == 3 and @game.four == 3 and @game.seven == 1 then @move = 7 and @test = false end %>
+<% if @game.one == 3 and @game.seven == 3 and @game.four == 1 then @move = 4 and @test = false end %>
+<% if @game.four == 3 and @game.seven == 3 and @game.one == 1 then @move = 1 and @test = false end %>
+<% if @game.two == 3 and @game.five == 3 and @game.eight == 1 then @move = 8 and @test = false end %>
+<% if @game.two == 3 and @game.eight == 3 and @game.five == 1 then @move = 5 and @test = false end %>
+<% if @game.five == 3 and @game.eight == 3 and @game.two == 1 then @move = 2 and @test = false end %>
+<% if @game.three == 3 and @game.six == 3 and @game.nine == 1 then @move = 9 and @test = false end %>
+<% if @game.three == 3 and @game.nine == 3 and @game.six == 1 then @move = 6 and @test = false end %>
+<% if @game.six == 3 and @game.nine == 3 and @game.three == 1 then @move = 3 and @test = false end %>
+<% #wins diagonal %>
+<% if @game.one == 3 and @game.five == 3 and @game.nine == 1 then @move = 9 and @test = false end %>
+<% if @game.one == 3 and @game.nine == 3 and @game.five == 1 then @move = 5 and @test = false end %>
+<% if @game.five == 3 and @game.nine == 3 and @game.one == 1 then @move = 1 and @test = false end %>
+<% if @game.three == 3 and @game.five == 3 and @game.seven == 1 then @move = 7 and @test = false end %>
+<% if @game.three == 3 and @game.seven == 3 and @game.five == 1 then @move = 5 and @test = false end %>
+<% if @game.five == 3 and @game.seven == 3 and @game.three == 1 then @move = 3 and @test = false end %>
+
+<% #if no move needed choose randoum possilbe move %>
+<% while @test == true do %>
+<% @move = 1 + rand(9) %>
+<% if @game.seven == 2 and @game.eight == 2 and @game.nine == 1 then @move = 9 and @test = false end %>
+<% if @game.seven == 2 and @game.nine == 2 and @game.eight == 1 then @move = 8 and @test = false end %>
+<% if @game.eight == 2 and @game.nine == 2 and @game.seven == 1 then @move = 7 and @test = false end %>
+<% if @move == 1  then if @game.one == 1 then @test = false end  end %>
+<% if @move == 2  then if @game.two == 1 then @test = false end  end %>
+<% if @move == 3  then if @game.three == 1 then @test = false end  end %>
+<% if @move == 4  then if @game.four == 1 then @test = false end  end %>
+<% if @move == 5  then if @game.five == 1 then @test = false end  end %>
+<% if @move == 6  then if @game.six == 1 then @test = false end  end %>
+<% if @move == 7  then if @game.seven == 1 then @test = false end  end %>
+<% if @move == 8  then if @game.eight == 1 then @test = false end  end %>
+<% if @move == 9  then if @game.nine == 1 then @test = false end  end %>
+<% if @game.count >= 4  then @test = false end %>
+<% if @game.count >= 4  then @move = 0 end %>
+<% end %>
+
+<% #handles if game has been won by "bot" %>
+<% if (@game.one == 3 or @move == 1) and (@game.two == 3 or @move == 2) and (@game.three == 3  or @move == 3) then @game.turn = 3 end %>
+<% if (@game.four == 3 or @move == 4) and (@game.five == 3 or @move == 5) and (@game.six == 3 or @move == 6) then @game.turn = 3 end %>
+<% if (@game.seven == 3 or @move == 7) and (@game.eight == 3 or @move == 8) and (@game.nine == 3 or @move == 9) then @game.turn = 3 end %>
+<% if (@game.one == 3 or @move == 1) and (@game.four == 3  or @move == 4) and (@game.seven == 3 or @move == 7) then @game.turn = 3 end %>
+<% if (@game.two == 3 or @move == 2) and (@game.five == 3 or @move == 5) and (@game.eight == 3 or @move == 8) then @game.turn = 3 end %>
+<% if (@game.three == 3 or @move == 3) and (@game.six == 3 or @move == 6) and (@game.nine == 3 or @move == 9) then @game.turn = 3 end %>
+<% if (@game.one == 3 or @move == 1) and (@game.five == 3 or @move == 5) and (@game.nine == 3 or @move == 9) then @game.turn = 3 end %>
+<% if (@game.three == 3 or @move == 3) and (@game.five == 3 or @move == 5) and (@game.seven == 3 or @move == 7) then @game.turn = 3 end %>
+
+<% #handles if game has been won by player ( somehow :p ) %>
+<% if @game.one == 2 and @game.two == 2 and @game.three == 2 then @game.turn = 2 end %>
+<% if @game.four == 2 and @game.five == 2 and @game.six == 2 then @game.turn = 2 end %>
+<% if @game.seven == 2 and @game.eight == 2 and @game.nine == 2 then @game.turn = 2 end %>
+<% if @game.one == 2 and @game.four == 2 and @game.seven == 2 then @game.turn = 2 end %>
+<% if @game.two == 2 and @game.five == 2 and @game.eight == 2 then @game.turn = 2 end %>
+<% if @game.three == 2 and @game.six == 2 and @game.nine == 2 then @game.turn = 2 end %>
+<% if @game.one == 2 and @game.five == 2 and @game.nine == 2 then @game.turn = 2 end %>
+<% if @game.three == 2 and @game.five == 2 and @game.seven == 2 then @game.turn = 2 end %>
+
+<% #display board if game has not been won %>
+<% if @game.turn == 1 %>
+
+<table>
+<tbody>
+<tr>
+	<% #Space 1 %>
+	<td>
+		<% if @game.one == 1 and @move != 1 then %>
+		<%= form_for @game, remote: true do |f| %>
+		<%= if @move == 1  then (f.hidden_field :one, value: 3) end %>
+		<%= if @move == 2  then (f.hidden_field :two, value: 3) end  %>
+		<%= if @move == 3  then (f.hidden_field :three, value: 3) end  %>
+		<%= if @move == 4  then (f.hidden_field :four, value: 3) end %>
+		<%= if @move == 5  then (f.hidden_field :five, value: 3) end %>
+		<%= if @move == 6  then (f.hidden_field :six, value: 3) end %>
+		<%= if @move == 7  then (f.hidden_field :seven, value: 3) end %>
+		<%= if @move == 8  then (f.hidden_field :eight, value: 3) end %>
+		<%= if @move == 9  then (f.hidden_field :nine, value: 3) end %>
+		<%= f.hidden_field :count, value: @use %>
+		<%= f.hidden_field :one, value: 2 %>
+		<%= f.submit class: "btn btn-primary" %>
+		<% end %>
+		<% elsif @game.one == 3 or @move == 1 then %>
+		<%= "O" %>
+		<% elsif @game.one == 2 then %>
+		<%= "X" %>
+		<% end %>
+	</td>
+	<% #Space 2 %>
+	<td>
+		<% if @game.two == 1 and @move != 2 then %>
+		<%= form_for @game, remote: true do |f| %>
+		<%= if @move == 1  then (f.hidden_field :one, value: 3) end %>
+		<%= if @move == 2  then (f.hidden_field :two, value: 3) end  %>
+		<%= if @move == 3  then (f.hidden_field :three, value: 3) end  %>
+		<%= if @move == 4  then (f.hidden_field :four, value: 3) end %>
+		<%= if @move == 5  then (f.hidden_field :five, value: 3) end %>
+		<%= if @move == 6  then (f.hidden_field :six, value: 3) end %>
+		<%= if @move == 7  then (f.hidden_field :seven, value: 3) end %>
+		<%= if @move == 8  then (f.hidden_field :eight, value: 3) end %>
+		<%= if @move == 9  then (f.hidden_field :nine, value: 3) end %>
+		<%= f.hidden_field :count, value: @use %>
+		<%= f.hidden_field :two, value: 2 %>
+		<%= f.submit class: "btn btn-primary" %>
+		<% end %>
+		<% elsif @game.two == 3 or @move == 2 then %>
+		<%= "O" %>
+		<% elsif @game.two == 2 then %>
+		<%= "X" %>
+		<% end %>
+	</td>
+	<% #Space 3 %>
+	<td>
+		<% if @game.three == 1 and @move != 3 then %>
+		<%= form_for @game, remote: true do |f| %>
+		<%= if @move == 1  then (f.hidden_field :one, value: 3) end %>
+		<%= if @move == 2  then (f.hidden_field :two, value: 3) end  %>
+		<%= if @move == 3  then (f.hidden_field :three, value: 3) end  %>
+		<%= if @move == 4  then (f.hidden_field :four, value: 3) end %>
+		<%= if @move == 5  then (f.hidden_field :five, value: 3) end %>
+		<%= if @move == 6  then (f.hidden_field :six, value: 3) end %>
+		<%= if @move == 7  then (f.hidden_field :seven, value: 3) end %>
+		<%= if @move == 8  then (f.hidden_field :eight, value: 3) end %>
+		<%= if @move == 9  then (f.hidden_field :nine, value: 3) end %>
+		<%= f.hidden_field :count, value: @use %>
+		<%= f.hidden_field :three, value: 2 %>
+		<%= f.submit class: "btn btn-primary" %>
+		<% end %>
+		<% elsif @game.three == 3 or @move == 3 then %>
+		<%= "O" %>
+		<% elsif @game.three == 2 then %>
+		<%= "X" %>
+		<% end %>
+	</td>
+</tr>
+<tr>
+	<% #Space 4 %>
+	<td>
+		<% if @game.four == 1 and @move != 4 then %>
+		<%= form_for @game, remote: true do |f| %>
+		<%= if @move == 1  then (f.hidden_field :one, value: 3) end %>
+		<%= if @move == 2  then (f.hidden_field :two, value: 3) end  %>
+		<%= if @move == 3  then (f.hidden_field :three, value: 3) end  %>
+		<%= if @move == 4  then (f.hidden_field :four, value: 3) end %>
+		<%= if @move == 5  then (f.hidden_field :five, value: 3) end %>
+		<%= if @move == 6  then (f.hidden_field :six, value: 3) end %>
+		<%= if @move == 7  then (f.hidden_field :seven, value: 3) end %>
+		<%= if @move == 8  then (f.hidden_field :eight, value: 3) end %>
+		<%= if @move == 9  then (f.hidden_field :nine, value: 3) end %>
+		<%= f.hidden_field :count, value: @use %>
+		<%= f.hidden_field :four, value: 2 %>
+		<%= f.submit class: "btn btn-primary" %>
+		<% end %>
+		<% elsif @game.four == 3 or @move == 4 then %>
+		<%= "O" %>
+		<% elsif @game.four == 2 then %>
+		<%= "X" %>
+		<% end %>
+	</td>
+	<% #Space 5 %>
+	<td>
+		<% if @game.five == 1 and @move != 5 then %>
+		<%= form_for @game, remote: true do |f| %>
+		<%= if @move == 1  then (f.hidden_field :one, value: 3) end %>
+		<%= if @move == 2  then (f.hidden_field :two, value: 3) end  %>
+		<%= if @move == 3  then (f.hidden_field :three, value: 3) end  %>
+		<%= if @move == 4  then (f.hidden_field :four, value: 3) end %>
+		<%= if @move == 5  then (f.hidden_field :five, value: 3) end %>
+		<%= if @move == 6  then (f.hidden_field :six, value: 3) end %>
+		<%= if @move == 7  then (f.hidden_field :seven, value: 3) end %>
+		<%= if @move == 8  then (f.hidden_field :eight, value: 3) end %>
+		<%= if @move == 9  then (f.hidden_field :nine, value: 3) end %>
+		<%= f.hidden_field :count, value: @use %>
+		<%= f.hidden_field :five, value: 2 %>
+		<%= f.submit class: "btn btn-primary" %>
+		<% end %>
+		<% elsif @game.five == 3 or @move == 5 then %>
+		<%= "O" %>
+		<% elsif @game.five == 2 then %>
+		<%= "X" %>
+		<% end %>
+	</td>
+	<% #Space 6 %>
+	<td>
+		<% if @game.six == 1 and @move != 6 then %>
+		<%= form_for @game, remote: true do |f| %>
+		<%= if @move == 1  then (f.hidden_field :one, value: 3) end %>
+		<%= if @move == 2  then (f.hidden_field :two, value: 3) end  %>
+		<%= if @move == 3  then (f.hidden_field :three, value: 3) end  %>
+		<%= if @move == 4  then (f.hidden_field :four, value: 3) end %>
+		<%= if @move == 5  then (f.hidden_field :five, value: 3) end %>
+		<%= if @move == 6  then (f.hidden_field :six, value: 3) end %>
+		<%= if @move == 7  then (f.hidden_field :seven, value: 3) end %>
+		<%= if @move == 8  then (f.hidden_field :eight, value: 3) end %>
+		<%= if @move == 9  then (f.hidden_field :nine, value: 3) end %>
+		<%= f.hidden_field :count, value: @use %>
+		<%= f.hidden_field :six, value: 2 %>
+		<%= f.submit class: "btn btn-primary" %>
+		<% end %>
+		<% elsif @game.six == 3 or @move == 6 then %>
+		<%= "O" %>
+		<% elsif @game.six == 2 then %>
+		<%= "X" %>
+		<% end %>
+	</td>
+</tr>
+<tr>
+	<% #Space 7 %>
+	<td>
+		<% if @game.seven == 1 and @move != 7 then %>
+		<%= form_for @game, remote: true do |f| %>
+		<%= if @move == 1  then (f.hidden_field :one, value: 3) end %>
+		<%= if @move == 2  then (f.hidden_field :two, value: 3) end  %>
+		<%= if @move == 3  then (f.hidden_field :three, value: 3) end  %>
+		<%= if @move == 4  then (f.hidden_field :four, value: 3) end %>
+		<%= if @move == 5  then (f.hidden_field :five, value: 3) end %>
+		<%= if @move == 6  then (f.hidden_field :six, value: 3) end %>
+		<%= if @move == 7  then (f.hidden_field :seven, value: 3) end %>
+		<%= if @move == 8  then (f.hidden_field :eight, value: 3) end %>
+		<%= if @move == 9  then (f.hidden_field :nine, value: 3) end %>
+		<%= f.hidden_field :count, value: @use %>
+		<%= f.hidden_field :seven, value: 2 %>
+		<%= f.submit class: "btn btn-primary" %>
+		<% end %>
+		<% elsif @game.seven == 3 or @move == 7 then %>
+		<%= "O" %>
+		<% elsif @game.seven == 2 then %>
+		<%= "X" %>
+		<% end %>
+	</td>
+	<td>
+		<% #Space 8 %>
+		<% if @game.eight == 1 and @move != 8 then %>
+		<%= form_for @game, remote: true do |f| %>
+		<%= if @move == 1  then (f.hidden_field :one, value: 3) end %>
+		<%= if @move == 2  then (f.hidden_field :two, value: 3) end  %>
+		<%= if @move == 3  then (f.hidden_field :three, value: 3) end  %>
+		<%= if @move == 4  then (f.hidden_field :four, value: 3) end %>
+		<%= if @move == 5  then (f.hidden_field :five, value: 3) end %>
+		<%= if @move == 6  then (f.hidden_field :six, value: 3) end %>
+		<%= if @move == 7  then (f.hidden_field :seven, value: 3) end %>
+		<%= if @move == 8  then (f.hidden_field :eight, value: 3) end %>
+		<%= if @move == 9  then (f.hidden_field :nine, value: 3) end %>
+		<%= f.hidden_field :count, value: @use %>
+		<%= f.hidden_field :eight, value: 2 %>
+		<%= f.submit class: "btn btn-primary" %>
+		<% end %>
+		<% elsif @game.eight == 3 or @move == 8 then %>
+		<%= "O" %>
+		<% elsif @game.eight == 2 then %>
+		<%= "X" %>
+		<% end %>
+	</td>
+	<td>
+		<% #Space 9 %>
+		<% if @game.nine == 1 and @move != 9 then %>
+		<%= form_for @game, remote: true do |f| %>
+		<%= if @move == 1  then (f.hidden_field :one, value: 3) end %>
+		<%= if @move == 2  then (f.hidden_field :two, value: 3) end  %>
+		<%= if @move == 3  then (f.hidden_field :three, value: 3) end  %>
+		<%= if @move == 4  then (f.hidden_field :four, value: 3) end %>
+		<%= if @move == 5  then (f.hidden_field :five, value: 3) end %>
+		<%= if @move == 6  then (f.hidden_field :six, value: 3) end %>
+		<%= if @move == 7  then (f.hidden_field :seven, value: 3) end %>
+		<%= if @move == 8  then (f.hidden_field :eight, value: 3) end %>
+		<%= if @move == 9  then (f.hidden_field :nine, value: 3) end %>
+		<%= f.hidden_field :count, value: @use %>
+		<%= f.hidden_field :nine, value: 2 %>
+		<%= f.submit class: "btn btn-primary" %>
+		<% end %>
+		<% elsif @game.nine == 3 or @move == 9 then %>
+		<%= "O" %>
+		<% elsif @game.nine == 2 then %>
+		<%= "X" %>
+		<% end %>
+	</td>
+</tr>
+</tbody>
+</table>
+<% #end of display is no winner exists %>
+<% end %>
+<% #handles display of who won if winner exists %>
+<% if @game.turn == 2 %>
+<%= "X Wins" %>
+<% end %>
+<% if @game.turn == 3 %>
+<%= "O Wins" %>
+<% end %>
+
+
+<% # 4 TESTING %>
+<table>
+<tbody>
+<tr>
+	<td><div id = "1"><%= @game.one %></div></td>
+	<td><div id = "2"><%= @game.two %></div></td>
+	<td><div id = "3"><%= @game.three %></div></td>
+</tr>
+<tr>
+	<td><div id = "4"><%= @game.four %></div></td>
+	<td><div id = "5"><%= @game.five %></div></td>
+	<td><div id = "6"><%= @game.six %></div></td>
+</tr>
+<tr>
+	<td><div id = "7"><%= @game.seven %></div></td>
+	<td><div id = "8"><%= @game.eight %></div></td>
+	<td><div id = "9"><%= @game.nine %></div></td>
+</tr>
+</tbody>
+</table>
+		<%= @game.count %>
+		<%= @move %>
+		<%= @divVar %>

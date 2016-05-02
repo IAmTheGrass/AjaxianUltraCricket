@@ -1,0 +1,29 @@
+<p> New </p>
+
+<%-# Form to make new game -%>
+<%= form_for @game do |f| %>
+ 
+<div class="field">
+<%= f.hidden_field :one, value: 1 %>
+<%= f.hidden_field :two, value: 1 %>
+<%= f.hidden_field :three, value: 1 %>
+<%= f.hidden_field :four, value: 1 %>
+<%= f.hidden_field :five, value: 1 %>
+<%= f.hidden_field :six, value: 1 %>
+<%= f.hidden_field :seven, value: 1 %>
+<%= f.hidden_field :eight, value: 1 %>
+<%= f.hidden_field :nine, value: 1 %>
+<%= f.hidden_field :turn, value: 1 %>
+<%= f.hidden_field :count, value: 0 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :piece %><br>
+    <%= f.text_field :piece %>
+  </div>  
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
